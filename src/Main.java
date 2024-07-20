@@ -1,5 +1,6 @@
 import com.google.gson.*;
 import modelos.InformacionClima;
+import modelos.InformacionClimaOpenWee;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -77,39 +78,51 @@ public class Main {
         System.out.println(json);
 
         Gson gson = new GsonBuilder()
-                .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
+                .setFieldNamingPolicy(FieldNamingPolicy.IDENTITY).setPrettyPrinting()
                 .create();
 
-        JsonObject jsonObject = JsonParser.parseString(json).getAsJsonObject();
+        InformacionClimaOpenWee informacionClimaOpenWee = gson.fromJson(json,InformacionClimaOpenWee.class);
 
-        String nombreCiudad = jsonObject.get("name").getAsString();
-        double temperaturaActual = jsonObject.getAsJsonObject("main").get("temp").getAsDouble();
-        double temperaturaMinima = jsonObject.getAsJsonObject("main").get("temp_min").getAsDouble();
-        double temperaturaMaxima = jsonObject.getAsJsonObject("main").get("temp_max").getAsDouble();
-        String condicionClimatica = jsonObject.getAsJsonArray("weather").get(0).getAsJsonObject().get("description")
-                .getAsString();
+        System.out.println(informacionClimaOpenWee);
+        System.out.println(informacionClimaOpenWee);
 
-        InformacionClima respuestaInformacion = new InformacionClima(nombreCiudad, temperaturaActual, temperaturaMinima,
-                temperaturaMaxima, condicionClimatica);
-        presentarRespuesta(respuestaInformacion);
-    }
 
-    private static void presentarRespuesta(InformacionClima respuesta) {
-        DateTimeFormatter formatterDay = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        DateTimeFormatter formatterHour = DateTimeFormatter.ofPattern("HH:mm");
+        InformacionClima informacionClima = new InformacionClima(informacionClimaOpenWee);
+        System.out.println("La informacion del clima es: " + informacionClima);
 
-        String respuestaEnTexto = "-----------------------------\n" +
-                "Respuesta: \n" +
-                "Ciudad: " + respuesta.getNombre() + "\n" +
-                "Fecha: " + respuesta.getFechaDeSolicitud().format(formatterDay) + "\n" +
-                "Horario: " + respuesta.getFechaDeSolicitud().format(formatterHour) + "\n" +
-                "\n" +
-                "Temperatura actual: " + respuesta.getTemperaturaActual() + "\n" +
-                "Condicion climatica: " + respuesta.getCondicionClimatica() + "\n" +
-                "Temperatura minima: " + respuesta.getTemperaturaMinima() + "\n" +
-                "Temperatura maxima: " + respuesta.getTemperaturaMaxima() + "\n" +
-                "------------------";
-        System.out.println(respuestaEnTexto);
 
-    }
+
+
+//        JsonObject jsonObject = JsonParser.parseString(json).getAsJsonObject();
+//
+//        String nombreCiudad = jsonObject.get("name").getAsString();
+//        double temperaturaActual = jsonObject.getAsJsonObject("main").get("temp").getAsDouble();
+//        double temperaturaMinima = jsonObject.getAsJsonObject("main").get("temp_min").getAsDouble();
+//        double temperaturaMaxima = jsonObject.getAsJsonObject("main").get("temp_max").getAsDouble();
+//        String condicionClimatica = jsonObject.getAsJsonArray("weather").get(0).getAsJsonObject().get("description")
+//                .getAsString();
+
+//        InformacionClima respuestaInformacion = new InformacionClima(nombreCiudad, temperaturaActual, temperaturaMinima,
+//                temperaturaMaxima, condicionClimatica);
+//        presentarRespuesta(respuestaInformacion);
+//    }
+
+//    private static void presentarRespuesta(InformacionClima respuesta) {
+//        DateTimeFormatter formatterDay = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+//        DateTimeFormatter formatterHour = DateTimeFormatter.ofPattern("HH:mm");
+//
+//        String respuestaEnTexto = "-----------------------------\n" +
+//                "Respuesta: \n" +
+//                "Ciudad: " + respuesta.getNombre() + "\n" +
+//                "Fecha: " + respuesta.getFechaDeSolicitud().format(formatterDay) + "\n" +
+//                "Horario: " + respuesta.getFechaDeSolicitud().format(formatterHour) + "\n" +
+//                "\n" +
+//                "Temperatura actual: " + respuesta.getTemperaturaActual() + "\n" +
+//                "Condicion climatica: " + respuesta.getCondicionClimatica() + "\n" +
+//                "Temperatura minima: " + respuesta.getTemperaturaMinima() + "\n" +
+//                "Temperatura maxima: " + respuesta.getTemperaturaMaxima() + "\n" +
+//                "------------------";
+//        System.out.println(respuestaEnTexto);
+//
+   }
 }

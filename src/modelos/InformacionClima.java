@@ -1,32 +1,51 @@
 package modelos;
 
-import com.google.gson.annotations.SerializedName;
+
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Objects;
 
 public class InformacionClima {
-    @SerializedName("name")
+
     private String nombre;
 
+
+
+
     private LocalDateTime fechaDeSolicitud;
-    @SerializedName("temp")
     private double temperaturaActual;
-    @SerializedName("temp_min")
     private double temperaturaMinima;
-    @SerializedName("temp_max")
     private double temperaturaMaxima;
-    @SerializedName("description")
     private String condicionClimatica;
+
+    DateTimeFormatter formatterDay = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+    DateTimeFormatter formatterHour = DateTimeFormatter.ofPattern("HH:mm");
+
 
     public InformacionClima(){
     }
 
-    public InformacionClima(String nombre, double temperaturaActual, double temperaturaMinima, double temperaturaMaxima, String condicionClimatica) {
+    public InformacionClima(String nombre, LocalDateTime fechaDeSolicitud, double temperaturaActual, double temperaturaMinima, double temperaturaMaxima, String condicionClimatica) {
         this.nombre = nombre;
-        this.fechaDeSolicitud = LocalDateTime.now();
+
+        this.fechaDeSolicitud = fechaDeSolicitud;
         this.temperaturaActual = temperaturaActual;
         this.temperaturaMinima = temperaturaMinima;
         this.temperaturaMaxima = temperaturaMaxima;
         this.condicionClimatica = condicionClimatica;
+    }
+
+    public InformacionClima(InformacionClimaOpenWee informacionClimaOpenWee) {
+        this.nombre = informacionClimaOpenWee.name();
+
+        this.fechaDeSolicitud = LocalDateTime.now();
+
+        this.temperaturaActual = informacionClimaOpenWee.temp();
+        this.temperaturaMinima = informacionClimaOpenWee.temp();
+        this.temperaturaMaxima = informacionClimaOpenWee.temp();
+        this.condicionClimatica = informacionClimaOpenWee.description();
     }
 
     public String getNombre() {
@@ -77,15 +96,25 @@ public class InformacionClima {
         this.condicionClimatica = condicionClimatica;
     }
 
-//    @Override
-//    public String toString() {
-//        return "InformacionClima{" +
-//                "nombre='" + nombre + '\'' +
-//                ", fechaDeSolicitud=" + fechaDeSolicitud +
-//                ", temperaturaActual=" + temperaturaActual +
-//                ", temperaturaMinima=" + temperaturaMinima +
-//                ", temperaturaMaxima=" + temperaturaMaxima +
-//                ", condicionClimatica='" + condicionClimatica + '\'' +
-//                '}';
-//    }
+
+
+
+    @Override
+    public String toString() {
+
+        return  '\n' + "-----------------------------------" +
+                '\n' +
+                "Respuesta:" + '\n' +
+                '\n' +
+                "Ciudad: " + nombre + '\n' +
+                "Fecha: " + fechaDeSolicitud.format(formatterDay) + '\n' +
+                "Horario: " + fechaDeSolicitud.format(formatterHour) + '\n' +
+                '\n' +
+                "principal: " +     '\n' +
+                "Temperatura Actual: " + temperaturaActual + '\n' +
+                "Condicion Climatica: " + condicionClimatica + '\n' +
+                "Temperatura Minima: " + temperaturaMinima + '\n' +
+                "Temperatura Maxima: " + temperaturaMaxima + '\n' +
+                "-------------------------------------------";
+    }
 }
