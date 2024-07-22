@@ -9,6 +9,7 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.time.format.DateTimeFormatter;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
@@ -18,13 +19,11 @@ public class Main {
 
     public static void main(String[] args) throws IOException, InterruptedException {
 
-        Scanner lectura = new Scanner(System.in);
-        var respuesta = 0;
+        int respuesta = 0;
         while (respuesta != 7) {
             System.out.println(
                     """
-
-                             Challenge Cieloscopio:\s
+                            Challenge Cieloscopio:\s
                             ------------------------------------
                             Elige una ciudad para obtener los datos meteorológicos:\s
                             1. Ciudad de México \s
@@ -38,7 +37,13 @@ public class Main {
             );
 
             System.out.println("Elige una opcion basada en el numero: ");
-            respuesta = Integer.parseInt(lectura.nextLine());
+            Scanner lectura = new Scanner(System.in);
+
+            try {
+                respuesta = Integer.parseInt(lectura.nextLine());
+            } catch (InputMismatchException  | NumberFormatException e ){
+                System.out.println("Valor invalido");
+            }
 
             switch (respuesta) {
                 case 1 -> busquedaDeDatosPorCiudad("Ciudad de Mexico");
@@ -52,11 +57,11 @@ public class Main {
                     busquedaDeDatosPorCiudad(busquedaCiudad);
                 }
                 case 7 -> {
-                    System.out.println("Saliendo del programa Cieloscopio, hasta luego....");
+                    System.out.println("Saliendo del programa Cieloscopio, gracias por usar nuestros servicios.");
                     break;
                 }
                 default -> {
-                    System.out.println("Opcion no valida, intentelo de nuevo.\n");
+                    System.out.println("Por favor, escoge una opcion correcta\n");
                 }
             }
         }
@@ -83,8 +88,8 @@ public class Main {
 
         InformacionClimaOpenWee informacionClimaOpenWee = gson.fromJson(json,InformacionClimaOpenWee.class);
 
-        System.out.println(informacionClimaOpenWee);
-        System.out.println(informacionClimaOpenWee);
+//        System.out.println(informacionClimaOpenWee);
+//        System.out.println(informacionClimaOpenWee);
 
 
         InformacionClima informacionClima = new InformacionClima(informacionClimaOpenWee);
@@ -96,7 +101,7 @@ public class Main {
 //        JsonObject jsonObject = JsonParser.parseString(json).getAsJsonObject();
 //
 //        String nombreCiudad = jsonObject.get("name").getAsString();
-//        double temperaturaActual = jsonObject.getAsJsonObject("main").get("temp").getAsDouble();
+//        double temp   eraturaActual = jsonObject.getAsJsonObject("main").get("temp").getAsDouble();
 //        double temperaturaMinima = jsonObject.getAsJsonObject("main").get("temp_min").getAsDouble();
 //        double temperaturaMaxima = jsonObject.getAsJsonObject("main").get("temp_max").getAsDouble();
 //        String condicionClimatica = jsonObject.getAsJsonArray("weather").get(0).getAsJsonObject().get("description")

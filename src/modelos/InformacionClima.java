@@ -3,33 +3,44 @@ package modelos;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Objects;
+import java.util.*;
+import java.lang.*;
 
 public class InformacionClima {
 
     private String nombre;
-
-
-
-
+    private Map<String, String> principal;
     private LocalDateTime fechaDeSolicitud;
     private double temperaturaActual;
     private double temperaturaMinima;
     private double temperaturaMaxima;
-    private String condicionClimatica;
 
-    DateTimeFormatter formatterDay = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-    DateTimeFormatter formatterHour = DateTimeFormatter.ofPattern("HH:mm");
 
+
+    private List<Map<String,String>> condicionClimatica;
+
+    private final DateTimeFormatter formatterDay = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+    private final DateTimeFormatter formatterHour = DateTimeFormatter.ofPattern("HH:mm");
 
     public InformacionClima(){
     }
 
-    public InformacionClima(String nombre, LocalDateTime fechaDeSolicitud, double temperaturaActual, double temperaturaMinima, double temperaturaMaxima, String condicionClimatica) {
-        this.nombre = nombre;
+//    public InformacionClima(String nombre, LocalDateTime fechaDeSolicitud, double temperaturaActual, double temperaturaMinima, double temperaturaMaxima, String condicionClimatica) {
+//        this.nombre = nombre;
+//
+//        this.fechaDeSolicitud = fechaDeSolicitud;
+//        this.temperaturaActual = temperaturaActual;
+//        this.temperaturaMinima = temperaturaMinima;
+//        this.temperaturaMaxima = temperaturaMaxima;
+//        this.condicionClimatica = condicionClimatica;
+//    }
 
+    public InformacionClima(String nombre, Map<String, String> principal,
+                            LocalDateTime fechaDeSolicitud, double temperaturaActual,
+                            double temperaturaMinima, double temperaturaMaxima,
+                            List<Map<String,String>> condicionClimatica) {
+        this.nombre = nombre;
+        this.principal = principal;
         this.fechaDeSolicitud = fechaDeSolicitud;
         this.temperaturaActual = temperaturaActual;
         this.temperaturaMinima = temperaturaMinima;
@@ -39,13 +50,12 @@ public class InformacionClima {
 
     public InformacionClima(InformacionClimaOpenWee informacionClimaOpenWee) {
         this.nombre = informacionClimaOpenWee.name();
-
+        this.principal = informacionClimaOpenWee.main();
         this.fechaDeSolicitud = LocalDateTime.now();
-
         this.temperaturaActual = informacionClimaOpenWee.temp();
         this.temperaturaMinima = informacionClimaOpenWee.temp();
         this.temperaturaMaxima = informacionClimaOpenWee.temp();
-        this.condicionClimatica = informacionClimaOpenWee.description();
+        this.condicionClimatica = informacionClimaOpenWee.weather();
     }
 
     public String getNombre() {
@@ -54,6 +64,14 @@ public class InformacionClima {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public Map<String, String> getPrincipal() {
+        return principal;
+    }
+
+    public void setPrincipal(Map<String, String> principal) {
+        this.principal = principal;
     }
 
     public LocalDateTime getFechaDeSolicitud() {
@@ -88,14 +106,13 @@ public class InformacionClima {
         this.temperaturaMaxima = temperaturaMaxima;
     }
 
-    public String getCondicionClimatica() {
+    public List<Map<String, String>> getCondicionClimatica() {
         return condicionClimatica;
     }
 
-    public void setCondicionClimatica(String condicionClimatica) {
+    public void setCondicionClimatica(List<Map<String, String>> condicionClimatica) {
         this.condicionClimatica = condicionClimatica;
     }
-
 
 
 
@@ -106,15 +123,14 @@ public class InformacionClima {
                 '\n' +
                 "Respuesta:" + '\n' +
                 '\n' +
-                "Ciudad: " + nombre + '\n' +
+                "Ciudad: " + nombre.toUpperCase() + '\n' +
                 "Fecha: " + fechaDeSolicitud.format(formatterDay) + '\n' +
                 "Horario: " + fechaDeSolicitud.format(formatterHour) + '\n' +
                 '\n' +
-                "principal: " +     '\n' +
-                "Temperatura Actual: " + temperaturaActual + '\n' +
-                "Condicion Climatica: " + condicionClimatica + '\n' +
-                "Temperatura Minima: " + temperaturaMinima + '\n' +
-                "Temperatura Maxima: " + temperaturaMaxima + '\n' +
+                "Temperatura Actual: " + principal.get("temp") + '\n' +
+                "Condicion Climatica: " + condicionClimatica.get(0).get("description").toUpperCase() + '\n' +
+                "Temperatura Minima: " + principal.get("temp_min") + '\n' +
+                "Temperatura Maxima: " + principal.get("temp_max") + '\n' +
                 "-------------------------------------------";
     }
 }
