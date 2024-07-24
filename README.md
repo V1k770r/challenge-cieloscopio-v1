@@ -1,9 +1,7 @@
 # CHALLENGE CIELOSCOPIO - ALURA LATAM
 
 <p align="center">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdWmNI5xiFmF6EzCDuLBsUnImcy6F8ItnGMA&usqp=CAU">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3mWjhHJakstP5769mOXj-VtMbWEsVQH-EzgZCxFkN43-p7L71R613mcKdOC6Qo0WdBjk&usqp=CAU">
-    <img  src="https://github.com/V1k770r/Challenge-One-Hotel/blob/master/Inicio.png" width="450" height="350">
+    <img  src="https://github.com/V1k770r/challenge-cieloscopio-v1/blob/solucion2/clima.gif" width="450" height="350">
 </p>
 
 <p  align="center">
