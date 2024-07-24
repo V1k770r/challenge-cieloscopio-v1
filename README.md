@@ -1,8 +1,9 @@
 <h1 align="center">CHALLENGE CIELOSCOPIO - ALURA LATAM</h1> 
 
 <p align="center">
-    <img  src="https://github.com/V1k770r/challenge-cieloscopio-v1/blob/solucion2/clima.gif" width="250" height="250">
-    <img  src="https://github.com/V1k770r/challenge-cieloscopio-v1/blob/solucion2/clima2.jpg" width="250" height="250">
+    <img  src="https://github.com/V1k770r/challenge-cieloscopio-v1/blob/solucion2/clima.gif" width="250" height="300">
+    <img  src="https://github.com/V1k770r/challenge-cieloscopio-v1/blob/solucion2/app.png" width="250" height="300">
+    <img  src="https://github.com/V1k770r/challenge-cieloscopio-v1/blob/solucion2/clima2.jpg" width="250" height="300">
 </p>
 
 <p  align="center">
