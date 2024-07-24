@@ -77,15 +77,4 @@ public class InformacionClima {
         this.condicionClimatica = condicionClimatica;
     }
 
-//    @Override
-//    public String toString() {
-//        return "InformacionClima{" +
-//                "nombre='" + nombre + '\'' +
-//                ", fechaDeSolicitud=" + fechaDeSolicitud +
-//                ", temperaturaActual=" + temperaturaActual +
-//                ", temperaturaMinima=" + temperaturaMinima +
-//                ", temperaturaMaxima=" + temperaturaMaxima +
-//                ", condicionClimatica='" + condicionClimatica + '\'' +
-//                '}';
-//    }
 }
