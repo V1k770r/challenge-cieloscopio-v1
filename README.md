@@ -1,8 +1,8 @@
-# CHALLENGE CIELOSCOPIO - ALURA LATAM
+<h1 align="center">CHALLENGE CIELOSCOPIO - ALURA LATAM</h1> 
 
 <p align="center">
-    <img  src="https://github.com/V1k770r/challenge-cieloscopio-v1/blob/solucion2/clima.gif" width="450" height="350">
-    <img  src="https://github.com/V1k770r/challenge-cieloscopio-v1/blob/solucion2/clima2.jpg" width="450" height="350">
+    <img  src="https://github.com/V1k770r/challenge-cieloscopio-v1/blob/solucion2/clima.gif" width="250" height="250">
+    <img  src="https://github.com/V1k770r/challenge-cieloscopio-v1/blob/solucion2/clima2.jpg" width="250" height="250">
 </p>
 
 <p  align="center">
@@ -13,35 +13,33 @@
 
 ## ☕ Descripción del proyecto
 
-`El proyecto consiste en la construcción de una aplicación que permita facilitar el funcionamiento del famoso hotel Alura, en el cual el recepcionista del hotel podra realizar el registro de los turistas de todo el mundo.`
+`El proyecto consiste en la construcción de una aplicación que permita consultar información en tiempo real del tiempo atmosférico, utilizando la informacion brindada por el API Open Weather App. Esta API cuenta con informacion de más de 200,000 ciudades con sus respectivos datos climáticos, como datos actuales y pronósticos del clima.`
 
 ## 📖 Caracteristicas del proyecto
 
-`La presente aplicación desarrollada refleja el uso de Java Swing, que es la biblioteca gráfica de java. Asi como la utilizacion de la POO caracterÍstico de Java, la aplicacion esta conectada a una base de datos relacional MySQL, 
-  esto con ayuda del uso de Java Persistencia API (JPA). La aplicacion fue desarrollada con la finalidad que sea escalable; es decir que pueda agregarse más funciones con el tiempo. Esta aplicación permite al recepcionista del hotel 
-  realizar los registros respectivos de los clientes. El recepcionista podra tener acceso a la aplicacion con una cuenta y contraseña especifica, dentro de la aplicacion podra realizar el registro de las siguientes variables: fecha de ingreso, fecha de salida, precio por el tiempo del hospedaje, un identificador unico
- por cada cliente; asu vez podra registrar los datos personales del cliente. Una vez realizado los registros, el recepcionista del hotel podra buscar un determinado cliente ya sea por su Id o por su Apellido dependiendo de las
- nececidad, podra eliminar y editar algun dato erroneo.`
+`La presente aplicación desarrollada refleja el uso de variables, estructura de control asi como el uso de reglas de escritura del código, de los 4 pilares de POO (abstraccion , ecapsulamiento, polimorfismo y herencia), el uso de Record, uso de la biblioteca Gson para la lectura de los archivos Json y otras bibliotecas, uso del manejo de errores, como consumir un API.`
 
-## :hammer: Funcionalidades del proyecto
+##  🔎 Funcionalidades del proyecto
 
 `Funcionalidades`:
 
- -`Inicio de sesion (usuario - contraseña)`
+-`La aplicación permite consultar informacion sobre el tiempo atmósferico a tiempo real, como la Temperatura actual (°C), Temperatura minima (°C), Temperatura máxima(°C), Condición climática y Humedad. Asu vez podra visualizar la fecha, hora en la que fueron realizadas las consultas y el nombre de la ciudad.`
 
--`Registro de las reservas (fecha de ingreso - fecha de sàlida - valor - id reserva)`
+ -`El usuario tendra que ingresar un valor númerico del 1 al 7, para acceder a la información climatológica de una ciudad`
+
+-`Las opciones 1 al 5, corresponden a ciudades ya definidas (Ciudad de Mexico, Buenos Aires, Bogota, Lima y Santiago); por lo que el usuario no tendra que digitar el nombre de la ciudad solo el número.`
   
- -`Registro de los huespedes (id resesrva - nombre - apellido - fecha de nacimiento - nacionalidad - telefono - id huesped) `
-  
-  -`Buscar reservas o huespedes (id - apellido)`
-  
- -`Editar reservas o huespedes`
-  
-  -`Eliminar alguana reserva - huesped`
-  
+ -`La opción 6, permite que el usuario pueda digitar la ciudad que desea consultar.`
+
+-`La opción 7, permite que el usuario pueda salir de la aplicación.`
+
+-`Si en caso el usuario ingresera un valor numérico diferente a las opciones brindadas por la aplicacion, el usuario visualizara un mensaje de error`
+ 
 ## ✔️ Tecnologías utilizada
+
 - `java-17`
 - `Libreria Gson version 2.10.1`
+- `Maven repository`
     
 ## 👋 Autor
 
