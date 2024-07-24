@@ -2,6 +2,7 @@
 
 <p align="center">
     <img  src="https://github.com/V1k770r/challenge-cieloscopio-v1/blob/solucion2/clima.gif" width="450" height="350">
+    <img  src="https://github.com/V1k770r/challenge-cieloscopio-v1/blob/solucion2/clima2.jpg" width="450" height="350">
 </p>
 
 <p  align="center">
