@@ -1,14 +1,15 @@
+package principal;
+
 import com.google.gson.*;
 import modelos.InformacionClima;
 import modelos.InformacionClimaOpenWee;
 
-import java.io.FileWriter;
+
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-import java.time.format.DateTimeFormatter;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -88,46 +89,9 @@ public class Main {
 
         InformacionClimaOpenWee informacionClimaOpenWee = gson.fromJson(json,InformacionClimaOpenWee.class);
 
-//        System.out.println(informacionClimaOpenWee);
-//        System.out.println(informacionClimaOpenWee);
-
 
         InformacionClima informacionClima = new InformacionClima(informacionClimaOpenWee);
         System.out.println("La informacion del clima es: " + informacionClima);
 
-
-
-
-//        JsonObject jsonObject = JsonParser.parseString(json).getAsJsonObject();
-//
-//        String nombreCiudad = jsonObject.get("name").getAsString();
-//        double temp   eraturaActual = jsonObject.getAsJsonObject("main").get("temp").getAsDouble();
-//        double temperaturaMinima = jsonObject.getAsJsonObject("main").get("temp_min").getAsDouble();
-//        double temperaturaMaxima = jsonObject.getAsJsonObject("main").get("temp_max").getAsDouble();
-//        String condicionClimatica = jsonObject.getAsJsonArray("weather").get(0).getAsJsonObject().get("description")
-//                .getAsString();
-
-//        InformacionClima respuestaInformacion = new InformacionClima(nombreCiudad, temperaturaActual, temperaturaMinima,
-//                temperaturaMaxima, condicionClimatica);
-//        presentarRespuesta(respuestaInformacion);
-//    }
-
-//    private static void presentarRespuesta(InformacionClima respuesta) {
-//        DateTimeFormatter formatterDay = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-//        DateTimeFormatter formatterHour = DateTimeFormatter.ofPattern("HH:mm");
-//
-//        String respuestaEnTexto = "-----------------------------\n" +
-//                "Respuesta: \n" +
-//                "Ciudad: " + respuesta.getNombre() + "\n" +
-//                "Fecha: " + respuesta.getFechaDeSolicitud().format(formatterDay) + "\n" +
-//                "Horario: " + respuesta.getFechaDeSolicitud().format(formatterHour) + "\n" +
-//                "\n" +
-//                "Temperatura actual: " + respuesta.getTemperaturaActual() + "\n" +
-//                "Condicion climatica: " + respuesta.getCondicionClimatica() + "\n" +
-//                "Temperatura minima: " + respuesta.getTemperaturaMinima() + "\n" +
-//                "Temperatura maxima: " + respuesta.getTemperaturaMaxima() + "\n" +
-//                "------------------";
-//        System.out.println(respuestaEnTexto);
-//
    }
 }

@@ -14,9 +14,6 @@ public class InformacionClima {
     private double temperaturaActual;
     private double temperaturaMinima;
     private double temperaturaMaxima;
-
-
-
     private List<Map<String,String>> condicionClimatica;
 
     private final DateTimeFormatter formatterDay = DateTimeFormatter.ofPattern("dd/MM/yyyy");
@@ -24,16 +21,6 @@ public class InformacionClima {
 
     public InformacionClima(){
     }
-
-//    public InformacionClima(String nombre, LocalDateTime fechaDeSolicitud, double temperaturaActual, double temperaturaMinima, double temperaturaMaxima, String condicionClimatica) {
-//        this.nombre = nombre;
-//
-//        this.fechaDeSolicitud = fechaDeSolicitud;
-//        this.temperaturaActual = temperaturaActual;
-//        this.temperaturaMinima = temperaturaMinima;
-//        this.temperaturaMaxima = temperaturaMaxima;
-//        this.condicionClimatica = condicionClimatica;
-//    }
 
     public InformacionClima(String nombre, Map<String, String> principal,
                             LocalDateTime fechaDeSolicitud, double temperaturaActual,
@@ -115,7 +102,6 @@ public class InformacionClima {
     }
 
 
-
     @Override
     public String toString() {
 
@@ -127,10 +113,12 @@ public class InformacionClima {
                 "Fecha: " + fechaDeSolicitud.format(formatterDay) + '\n' +
                 "Horario: " + fechaDeSolicitud.format(formatterHour) + '\n' +
                 '\n' +
-                "Temperatura Actual: " + principal.get("temp") + '\n' +
+                "Temperatura Actual: " + principal.get("temp") + "°C" + '\n' +
                 "Condicion Climatica: " + condicionClimatica.get(0).get("description").toUpperCase() + '\n' +
-                "Temperatura Minima: " + principal.get("temp_min") + '\n' +
-                "Temperatura Maxima: " + principal.get("temp_max") + '\n' +
-                "-------------------------------------------";
+                '\n' +
+                "Temperatura Minima: " + principal.get("temp_min") + "°C" + '\n' +
+                "Temperatura Maxima: " + principal.get("temp_max") + "°C" + '\n' +
+                "Humedad: " + principal.get("humidity") + "%" + '\n' +
+                "-----------------------------------" + '\n';
     }
 }

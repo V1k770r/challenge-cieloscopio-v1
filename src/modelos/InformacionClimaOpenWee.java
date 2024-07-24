@@ -8,7 +8,4 @@ public record InformacionClimaOpenWee(String name,
                                       double temp_min,
                                       double temp_max,
                                       List<Map<String,String>> weather) {
-
-
-
 }
