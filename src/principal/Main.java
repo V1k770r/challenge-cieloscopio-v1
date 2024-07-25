@@ -15,7 +15,7 @@ import java.util.Scanner;
 
 public class Main {
 
-    private static final String API_KEY = "01c9a3da1cb2d196a7eced3b1fd3a7f7";
+    private static final String API_KEY = "**********************************";
     private static final String BASE_URL = "https://api.openweathermap.org/data/2.5/weather";
 
     public static void main(String[] args) throws IOException, InterruptedException {
